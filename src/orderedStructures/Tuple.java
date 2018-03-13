@@ -38,7 +38,6 @@ public class Tuple implements interfaces.OrderedNumberStructure {
 		System.out.println("Index --- Term Value"); 
 		for (int i=0; i<n; i++)
 			System.out.println((i+1) +  "---" + term[i]); 
-	
 	}
 
 }
