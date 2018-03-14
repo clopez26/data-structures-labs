@@ -2,7 +2,7 @@ package testers;
 
 import indexList.IndexList;
 import indexList.LLIndexList;
-import linkedLists.SLFLList;
+import linkedLists.DLDHDTList;
 
 public class IndexListTester {
 
@@ -11,7 +11,7 @@ public class IndexListTester {
 	 */
 	public static void main(String[] args) {	
 		listTester("Testing the singly linked list (SLList): ",
-				new LLIndexList<Integer>(new SLFLList<Integer>()));	
+				new LLIndexList<Integer>(new DLDHDTList<Integer>()));	
 	}
 		
 	private static void listTester(String msg, IndexList<Integer>  list) { 
@@ -41,11 +41,11 @@ public class IndexListTester {
 		showListAfterReplacing(list, 3,  400); 
 		showListAfterReplacing(list, 0, 30); 
 		showListAfterAdding(list, 3,  700); 
-//		
-//		while (!list.isEmpty()) { 
-//			showListAfterDeleting(list, list.size()); 
-//			showListAfterDeleting(list, 0); 
-//		}
+		
+		while (!list.isEmpty()) { 
+			showListAfterDeleting(list, list.size()); 
+			showListAfterDeleting(list, 0); 
+		}
 		
 		showListAfterAdding(list, 0,  700); 
 		showListAfterAdding(list, 1,  800); 
