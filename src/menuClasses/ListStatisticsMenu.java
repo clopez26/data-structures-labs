@@ -16,8 +16,7 @@ public class ListStatisticsMenu extends Menu {
 		options.add(new Option("Show max value in a List", new ShowMaxValueListAction())); 
 		options.add(Option.EXIT); 
 
-		super.InitializeMenu(title, options); 
-
+		super.InitializeMenu(title, options);
 	}
 	
 	public static ListStatisticsMenu getListStatisticsMenu() { 
