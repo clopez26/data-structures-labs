@@ -18,7 +18,6 @@ public class Option {
 		this.description = description; 
 		this.action = action; 
 	}
-
 	public String getDescription() {
 		return description;
 	}

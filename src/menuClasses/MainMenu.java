@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class MainMenu extends Menu {
 	private static final MainMenu MM = new MainMenu(); 
-	private MainMenu() { 
+	private MainMenu() 
+	{ 
 		super(); 
 		String title; 
 		ArrayList<Option> options = new ArrayList<Option>();  
@@ -13,6 +14,7 @@ public class MainMenu extends Menu {
 		options.add(new Option("Create New List", new CreateListAction())); 
 		options.add(new Option("Delete an Existing List", new DeleteFromListAction()));
 		options.add(new Option("Operations on Lists", new OperateListAction())); 
+		options.add(new Option("Alter Content of a List", new AlterListAction()));
 		options.add(Option.EXIT); 
 
 		super.InitializeMenu(title, options); 
