@@ -20,6 +20,5 @@ public class Main {
 			Option opt = mStack.peek().activate(); 
 			opt.getAction().execute(dm); 
 		} 
-		
 	}
 }
