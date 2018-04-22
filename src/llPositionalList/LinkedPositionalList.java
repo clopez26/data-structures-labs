@@ -9,7 +9,6 @@ import interfaces.Position;
 import interfaces.PositionalList;
 
 public class LinkedPositionalList<E> implements PositionalList<E> {
-	LinkedPositionalList self = this;
 	
 	private class DNode<E> implements Position<E> { 
 		private E element; 
@@ -22,7 +21,6 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 			this.element = element;
 			this.prev = prev;
 			this.next = next;
-			this.list = self;
 		}
 		public DNode(E element) {
 			this(element, null, null);
@@ -49,9 +47,6 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 			element = null; 
 			prev = next = null; 
 		}
-		public LinkedPositionalList<E> getList() {
-			return list;
-		}
 	}
 	
 	private DNode<E> header, trailer; 
@@ -66,16 +61,34 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 		header.setNext(trailer);
 		trailer.setPrev(header); 
 		size = 0; 
+		iteratorMaker = new F2LIteratorMaker<E>();
 	}
-
+	
+	public LinkedPositionalList(PLIteratorMaker<E> iter) {
+		header = new DNode<>(); 
+		trailer = new DNode<>(); 
+		header.setNext(trailer);
+		trailer.setPrev(header); 
+		size = 0;
+		iter = iteratorMaker;
+	}
+	
 	private DNode<E> validate(Position<E> p) throws IllegalArgumentException { 
 		try { 
 			DNode<E> dp = (DNode<E>) p; 
 			
-			if (dp.getPrev() == null || dp.getNext() == null || dp.getList() != this) 
+			if (dp.getPrev() == null || dp.getNext() == null)
 				throw new IllegalArgumentException("Invalid internal node."); 
 			
-			return dp; 
+			Iterator<Position<E>> iter = new PositionIterator();
+			
+			while(iter.hasNext())
+			{
+				if(iter.next() == dp)
+					return dp;
+			}
+				throw new IllegalArgumentException("Invalid operation on wrong list");
+				
 		} catch (ClassCastException e) { 
 			throw new IllegalArgumentException("Invalid position type."); 
 		}
