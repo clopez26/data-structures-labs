@@ -214,7 +214,6 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 						cloneSubtree(pos1, t, pos_2); 
 		}
 	}
-
 	/**
 	 * SEE ALSO METHOD set in textbook. Work an implementation on your own, but not required
 	 * for this lab. 
