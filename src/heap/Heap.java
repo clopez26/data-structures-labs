@@ -211,6 +211,5 @@ public class Heap<E> extends LinkedBinaryTree<E> {
 		public void setElement(E element) {
 			this.element = element;
 		} 
-		
 	}
 }
