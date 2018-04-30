@@ -64,9 +64,23 @@ public class Utils {
 		t.addLeft(rootLeftChild, 7);
 		t.addRight(rootLeftChild, 10);
 		
-		Position<Integer>
+		Position<Integer> rootLeftGrandChild = t.addLeft(rootRightChild, 15);
+		Position<Integer> rootRightGrandChild = t.addRight(rootRightChild, 21);
 		
+		// left grandchildren
 		
+		t.addLeft(rootLeftGrandChild, 12);
+		
+		Position<Integer> rootRightLeftGrandChild = t.addRight(rootLeftGrandChild, 17);
+		
+		t.addLeft(rootRightLeftGrandChild, 19);
+		
+		// right grandchildren
+		
+		Position<Integer> rootRightRightGreatGrandChild = t.addRight(rootRightGrandChild, 40);
+		
+		t.addLeft(rootRightRightGreatGrandChild, 30);
+		t.addRight(rootRightRightGreatGrandChild, 45);
 		
 		return t; 
 	}
